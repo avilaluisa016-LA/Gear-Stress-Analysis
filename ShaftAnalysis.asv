@@ -1,0 +1,35 @@
+%% Shaft Analysis
+% Purpose of this file is to test the stress that my shaft will experience
+% while driving a spur gear.
+clc, clear;
+% Importing model and setting grids
+shaftModel = createpde('structural', 'static-solid');
+importGeometry(shaftModel, 'Test Shaft.stl'); % Model from Fusion 360
+pdegplot(shaftModel, 'FaceLabels','on', 'FaceAlpha', ...
+    0.5);
+msh = generateMesh(shaftModel, 'Hmax', 0.002, 'Hmin', ...
+    0.0005, 'GeometricOrder', 'linear');
+pdeplot3D(shaftModel);
+
+% Define material properties and dimensions
+E = 1.1e9; % Pa; Using weakest version
+nu = 0.35; % Dimensionless
+structuralProperties(shaftModel, 'YoungsModulus', E, ...
+    'PoissonsRatio', nu);
+structuralBC(shaftModel, 'Face', 30, 'Constraint', ...
+    'fixed');
+
+shaftDiameter = 0.01; % meters
+shaftLength = 0.0254; % meters
+
+
+
+% Apply loads to the shaft
+structuralBoundaryLoad(shaftModel, 'Face', 29, ...
+    'SurfaceTraction', [0; -1000; 0]); % Example load in N/m^2
+% Solve the structural analysis problem
+results = solve(shaftModel);
+
+% Extract stress and displacement results
+stress = results.Stress;
+displacement = results.Displacement;
