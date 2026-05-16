@@ -19,19 +19,17 @@ SimpleGearRatio/
 ## Stress Analysis — MATLAB
 Theory
 Two classical failure modes are evaluated across a range of input torques (0.01 – 0.5 N·m):
-1. Lewis Bending Stress
-bending_stress = Wt/(b*m*Y)​
+1. Lewis Bending Stress = Wt/(b*m*Y)​
 
 Wt​ is the tangential load
 b is the face width
 m is the module
 Y is the Lewis form factor (Barth equation, ϕ=20°)
 
-2. Hertzian Contact Stress
-Hertzian_Stress = ( (Wt/b) * ((1/rho1) + (1/rho2)/ pi * Ze))^(1/2)
+2. Hertzian Contact Stress = ( (Wt/b) * ((1/rho1) + (1/rho2)/ pi * Ze))^(1/2)
 
 ρ1 and ρ2​ are the radii of curvature at the pitch point
-ZE​ is the elastic coefficient for the ABS material pair.
+Ze​ is the elastic coefficient for the ABS material pair.
 Material Properties — ABS
     Young's Modulus = 2,000MPa
     Poisson's Ratio = 0.35
