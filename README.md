@@ -20,22 +20,23 @@ SimpleGearRatio/
 Theory
 Two classical failure modes are evaluated across a range of input torques (0.01 – 0.5 N·m):
 1. Lewis Bending Stress
-σb=Wtb⋅m⋅Y\sigma_b = \frac{W_t}{b \cdot m \cdot Y}σb​=b⋅m⋅YWt​​
-Where WtW_t
-Wt​ is the tangential load, bb
-b is the face width, mm
-m is the module, and YY
-Y is the Lewis form factor (Barth equation, ϕ=20°\phi = 20°
-ϕ=20°). The 6-tooth pinion has the lowest YY
-Y value and therefore the highest bending stress — making it the critical component.
+bending_stress = Wt/(b*m*Y)​
+
+Wt​ is the tangential load
+b is the face width
+m is the module
+Y is the Lewis form factor (Barth equation, ϕ=20°)
+
 2. Hertzian Contact Stress
-σH=Wtb⋅1/ρ1+1/ρ2π⋅ZE\sigma_H = \sqrt{\frac{W_t}{b} \cdot \frac{1/\rho_1 + 1/\rho_2}{\pi \cdot Z_E}}σH​=bWt​​⋅π⋅ZE​1/ρ1​+1/ρ2​​​
-Where ρ1\rho_1
-ρ1​, ρ2\rho_2
-ρ2​ are the radii of curvature at the pitch point and ZEZ_E
+Hertzian_Stress = ( (Wt/b) * ((1/rho1) + (1/rho2)/ pi * Ze))^(1/2)
+
+ρ1 and ρ2​ are the radii of curvature at the pitch point
 ZE​ is the elastic coefficient for the ABS material pair.
 Material Properties — ABS
-PropertyValueYoung's Modulus2,000 MPaPoisson's Ratio0.35Yield Strength40 MPaAllowable Bending Stress20 MPa (SF = 2.0)
+    Young's Modulus = 2,000MPa
+    Poisson's Ratio = 0.35
+    Yield Strength = 40 MPa
+    Allowable Bending Stress = 20 MPa (SF = 2.0)
 
 ## How to Run the Analysis
 1. Clone the repo or download GearStressAnalysis.m
