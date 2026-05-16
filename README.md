@@ -9,7 +9,7 @@ ParameterValueGear TypeSpur gearModule (m)2 mmPinion Tooth Count6T (driver)Gear 
 ## Repository Structure
 SimpleGearRatio/
 ├── CAD/
-│   └── SimpleGearRatio.f3z       # Fusion 360 assembly (all components)
+│   └── SimpleGearSystem.step       # Fusion 360 assembly (all components)
 ├── MATLAB/
 │   └── GearStressAnalysis.m      # Stress analysis script
 ├── Output/
